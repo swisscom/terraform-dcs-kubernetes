@@ -3,7 +3,7 @@
 # ======================================================================================================================
 variable "module_version" {
   description = "Version/Release of this module"
-  default     = "v2.4.1"
+  default     = "v2.4.2"
   # See https://github.com/swisscom/terraform-dcs-kubernetes/releases
 }
 
