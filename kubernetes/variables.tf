@@ -1,3 +1,5 @@
+variable "module_version" {}
+
 variable "k8s_node_cidr" {
   default = "10.80.0.0/24"
 }

@@ -24,10 +24,6 @@ terraform {
       source  = "hashicorp/http"
       version = "~> 2.1.0"
     }
-    external = {
-      source  = "hashicorp/external"
-      version = "~> 2.2.2"
-    }
   }
   required_version = ">= 1.2.0"
 }
@@ -113,6 +109,7 @@ module "kubernetes" {
   k8s_control_plane_instances = var.k8s_control_plane_instances
   k8s_worker_instances        = var.k8s_worker_instances
 
+  module_version     = var.module_version
   k3s_version        = var.k8s_k3s_version
   cilium_version     = var.k8s_cilium_version
   cilium_cli_version = var.k8s_cilium_cli_version

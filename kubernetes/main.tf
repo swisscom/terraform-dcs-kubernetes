@@ -6,18 +6,7 @@ terraform {
     http = {
       source = "hashicorp/http"
     }
-    external = {
-      source = "hashicorp/external"
-    }
   }
-}
-
-data "external" "git_data" {
-  program = [
-    "git", "log",
-    "--pretty=format:{ \"sha\": \"%H\", \"date\": \"%ad\", \"tag\": \"%(describe:tags)\" }",
-    "-1", "HEAD"
-  ]
 }
 
 module "k3s" {
@@ -62,8 +51,7 @@ module "k3s" {
       labels = { "node.kubernetes.io/type" = "master" }
       annotations = {
         "server.index" : i,
-        "dcs.kubernetes.io/release_sha" : "'${data.external.git_data.result.sha}'",
-        "dcs.kubernetes.io/release_tag" : "'${data.external.git_data.result.tag}'"
+        "dcs.kubernetes.io/release" : "'${var.module_version}'"
       }
     }
   }
@@ -84,8 +72,7 @@ module "k3s" {
       labels = { "node.kubernetes.io/pool" = "worker" }
       annotations = {
         "worker.index" : i,
-        "dcs.kubernetes.io/release_sha" : "'${data.external.git_data.result.sha}'",
-        "dcs.kubernetes.io/release_tag" : "'${data.external.git_data.result.tag}'"
+        "dcs.kubernetes.io/release" : "'${var.module_version}'"
       }
     }
   }

@@ -35,6 +35,33 @@ write_files:
           nameservers:
             addresses: [1.1.1.1, 8.8.8.8]
           dhcp4: false
+- path: /etc/logrotate.d/rsyslog
+  owner: root
+  content: |
+    /var/log/syslog
+    /var/log/mail.info
+    /var/log/mail.warn
+    /var/log/mail.err
+    /var/log/mail.log
+    /var/log/daemon.log
+    /var/log/kern.log
+    /var/log/auth.log
+    /var/log/user.log
+    /var/log/lpr.log
+    /var/log/cron.log
+    /var/log/debug
+    /var/log/messages
+    {
+      rotate 7
+      daily
+      missingok
+      notifempty
+      compress
+      sharedscripts
+      postrotate
+        /usr/lib/rsyslog/rsyslog-rotate
+      endscript
+    }
 
 package_update: true
 packages:

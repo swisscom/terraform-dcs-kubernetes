@@ -16,6 +16,16 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Check release version variable
+      run: |
+        TF_VAR_VERSION=$(cat variables.tf | grep 'variable "module_version"' -A2 | grep default | awk -F'"' '{print $2;}')
+        if [ $(git tag -l "${TF_VAR_VERSION}") ]; then
+            echo "Release ${TF_VAR_VERSION} already exists on GitHub! Did you forget to update the 'module_version'?"
+            exit 1
+        fi
 
     - name: Setup Terraform override
       if: github.ref == 'refs/heads/master'
