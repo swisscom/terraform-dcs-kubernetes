@@ -189,17 +189,17 @@ variable "k8s_enable_automatic_node_reboot" {
 }
 variable "k8s_k3s_version" {
   description = "Kubernetes version of K3s to install"
-  default     = "v1.24.7+k3s1"
+  default     = "v1.24.8+k3s1"
   # See https://github.com/k3s-io/k3s/releases
 }
 variable "k8s_cilium_version" {
   description = "Cilium version to install"
-  default     = "v1.12.3"
+  default     = "v1.12.4"
   # See https://github.com/cilium/cilium/releases
 }
 variable "k8s_cilium_cli_version" {
   description = "Cilium CLI version to use for Cilium installation"
-  default     = "v0.12.6"
+  default     = "v0.12.8"
   # See https://github.com/cilium/cilium-cli/releases
 }
 variable "k8s_helm_longhorn_version" {
@@ -219,7 +219,7 @@ variable "k8s_helm_ingress_nginx_version" {
 }
 variable "k8s_helm_cert_manager_version" {
   description = "Helm chart version of Cert-Manager to install"
-  default     = "1.10.0"
+  default     = "1.10.1"
   # See https://artifacthub.io/packages/helm/cert-manager/cert-manager
 }
 variable "k8s_helm_kubernetes_dashboard_version" {
@@ -239,7 +239,7 @@ variable "k8s_helm_loki" {
 }
 variable "k8s_helm_promtail" {
   description = "Helm chart version of Promtail to install"
-  default     = "6.6.1"
+  default     = "6.6.2"
   # See https://artifacthub.io/packages/helm/grafana/promtail
 }
 variable "k8s_helm_grafana" {
