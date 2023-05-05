@@ -1,3 +1,14 @@
+## Note: this project has been archived, consider migrating to the more modern, production-grade [https://github.com/swisscom/kubeone-dcs-kubernetes](https://github.com/swisscom/kubeone-dcs-kubernetes).
+Your existing Kubernetes cluster deployments will of course continue working just fine with the last release (`v2.6.0`) of this repository here, but the new [KubeOne design](https://github.com/swisscom/kubeone-dcs-kubernetes#kubeone-dcs-kubernetes) offers many advantages over it:
+- Node autoscaling / dynamic worker VMs
+- Multiple worker pools possible
+- vCloud-CSI integration (no need for Longhorn and worker VMs with large disks)
+- Newer Kubernetes versions, with an easier upgrade procedure
+- Battle-tested KubeOne tooling for cluster management
+- More resilient Helm chart deployments
+
+-----
+
 # terraform-dcs-kubernetes
 
 [![Build](https://img.shields.io/github/actions/workflow/status/swisscom/terraform-dcs-kubernetes/master.yml?branch=master&label=Build)](https://github.com/swisscom/terraform-dcs-kubernetes/actions/workflows/master.yml)
